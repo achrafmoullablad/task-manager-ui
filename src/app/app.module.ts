@@ -9,12 +9,23 @@ import { KeycloakService } from './services/keycloak/keycloak.service';
 import { HttpTokenInterceptor } from './services/interceptor/http-token.interceptor';
 import { CodeInputModule } from 'angular-code-input';
 import { APP_BASE_HREF } from '@angular/common';
+import { AppComponent } from './app.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export function KcFactory(kcService: KeycloakService){
   return () => kcService.init();
 }
 
 @NgModule({
+  bootstrap: [AppComponent],
+  declarations: [
+    AppComponent,
+    RegisterComponent,
+    ActivateAccountComponent,
+    LoginComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
